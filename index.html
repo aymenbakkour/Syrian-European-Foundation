@@ -1,69 +1,435 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المؤسسة السورية الأوروبية للتنمية والتواصل</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'primary-dark': '#0b2545',
-              'secondary-gold': '#f7b731',
-              'light-bg': '#f8f9fa',
-              'success-green': '#198754',
-              'info-blue': '#0dcaf0',
-              'danger-red': '#dc3545',
-            }
-          }
-        }
-      }
-    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
-      /* Custom scrollbar for better aesthetics */
-      ::-webkit-scrollbar {
-          width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-          background: #f1f1f1;
-          border-radius: 10px;
-      }
-      ::-webkit-scrollbar-thumb {
-          background: #888;
-          border-radius: 10px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-          background: #555;
-      }
-      html, body, #root {
-          height: 100%;
-          margin: 0;
-      }
-      body {
-          font-family: 'Arial', sans-serif;
-          background-color: var(--light-bg);
-          color: var(--primary-dark);
-      }
+        :root {
+            /* الألوان الأساسية للمؤسسة: الأزرق الداكن للجدية والذهبي للحيوية */
+            --primary-color: #0b2545; 
+            --secondary-color: #f7b731;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+        }
+
+        .navbar-custom {
+            background-color: var(--primary-color) !important;
+        }
+        .navbar-custom .nav-link, .navbar-custom .navbar-brand {
+            color: white !important;
+        }
+
+        .hero-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+            border-bottom: 4px solid var(--secondary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 30px;
+        }
+
+        .cta-card {
+            border-left: 5px solid var(--secondary-color);
+            transition: transform 0.3s;
+        }
+        .cta-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .expert-card {
+            text-align: center;
+        }
+        .expert-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--secondary-color);
+        }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.5",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.28.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0"
-  }
-}
-</script>
 </head>
-<body class="bg-light-bg text-primary-dark">
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">🇸🇾 المؤسسة السورية الأوروبية للتنمية والتواصل 🇪🇺</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="تبديل التنقل">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">الرئيسية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">عن المؤسسة</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#development">نقل الخبرات</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">خدمات الجالية</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#branches">الفروع والشبكة</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-warning text-dark ms-3" href="#join">شارك معنا</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero-section">
+        <div class="container">
+            <h1>توحيد الطاقات السورية لبناء المستقبل</h1>
+            <p class="lead mt-4 mb-5">المظلة الجامعة للسوريين في أوروبا ومركز التبادل المعرفي الأول مع الوطن.</p>
+            <a href="#development" class="btn btn-warning btn-lg me-3">اكتشف برامجنا التنموية <i class="fas fa-chart-line"></i></a>
+            <a href="#services" class="btn btn-outline-light btn-lg">احصل على الدعم القانوني <i class="fas fa-shield-alt"></i></a>
+        </div>
+    </header>
+
+    <main class="container my-5">
+
+        <section id="stats" class="my-5 text-center">
+            <h2 class="section-title">إنجازاتنا بالأرقام</h2>
+            <div class="row text-white">
+                <div class="col-md-3 mb-3">
+                    <div class="p-4 rounded shadow bg-primary">
+                        <i class="fas fa-users fa-3x mb-2"></i>
+                        <h3 class="counter" data-target="1500">0</h3>
+                        <p>خبير مسجل</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="p-4 rounded shadow bg-success">
+                        <i class="fas fa-project-diagram fa-3x mb-2"></i>
+                        <h3 class="counter" data-target="5">0</h3>
+                        <p>برنامج توأمة فعال</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="p-4 rounded shadow bg-info">
+                        <i class="fas fa-gavel fa-3x mb-2"></i>
+                        <h3 class="counter" data-target="700">0</h3>
+                        <p>قضية تم التعامل معها</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="p-4 rounded shadow" style="background-color: var(--secondary-color);">
+                        <i class="fas fa-map-marker-alt fa-3x mb-2" style="color: var(--primary-color);"></i>
+                        <h3 class="counter" data-target="9">0</h3>
+                        <p style="color: var(--primary-color);">فروع ونقاط اتصال</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <hr>
+
+        <section id="about" class="my-5">
+            <h2 class="section-title">عن المؤسسة السورية الأوروبية للتنمية والتواصل</h2>
+            <p class="lead">نحن منظمة مؤسسية مستقلة تعمل على تعزيز دور الكفاءات السورية في أوروبا في عملية التنمية الوطنية.</p>
+            
+            <div class="row mt-4">
+                <div class="col-md-6 mb-4">
+                    <div class="card p-3 h-100 shadow-sm cta-card">
+                        <h4 class="text-primary"><i class="fas fa-bullseye me-2"></i> رؤيتنا ورسالتنا</h4>
+                        <p>**الرؤية:** أن نكون المظلة الجامعة والرائدة للسوريين في أوروبا، ومركز التبادل المعرفي الأول.</p>
+                        <p> **الرسالة:** توحيد الجهود، تجسير العلاقة مع الوطن، ودعم وحماية مصالح السوريين في القارة.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card p-3 h-100 shadow-sm cta-card">
+                        <h4 class="text-primary"><i class="fas fa-sitemap me-2"></i> الهيكل التنظيمي (اضغط لمعرفة التفاصيل)</h4>
+                        <button class="btn btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#structureModal">
+                            عرض الهيكل التنظيمي التفاعلي
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="development" class="my-5">
+            <h2 class="section-title">نقل التجارب والخبرات الأوروبية</h2>
+            <p class="text-muted">نعمل على بناء برامج "توأمة معرفية" لسد الفجوات التنموية بالتعاون مع الجهات السورية المعنية.</p>
+
+            <div class="row mt-4">
+                <div class="col-lg-4 mb-4">
+                    <div class="card p-4 h-100 bg-light shadow-sm">
+                        <h4 class="text-primary"><i class="fas fa-handshake me-2"></i> كن جزءاً من شبكة الخبراء</h4>
+                        <p>سجل خبرتك في القطاعات الحيوية للمساهمة في بناء سوريا المستقبل.</p>
+                        <button class="btn btn-success mt-auto" data-bs-toggle="modal" data-bs-target="#expertFormModal">
+                            سجل الآن <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="card p-4 h-100 shadow-sm cta-card">
+                        <h4 class="text-primary"><i class="fas fa-city me-2"></i> مشروع الحوكمة البلدية</h4>
+                        <p class="card-text">نقل نماذج الإدارة المحلية اللامركزية الناجحة في ألمانيا إلى المدن السورية.</p>
+                        <span class="badge bg-secondary mt-2">قطاع الإدارة والخدمات</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="card p-4 h-100 shadow-sm cta-card">
+                        <h4 class="text-primary"><i class="fas fa-heartbeat me-2"></i> برنامج الرعاية الصحية الأولية</h4>
+                        <p class="card-text">تطوير أنظمة الرعاية الصحية الأولية وتدريب الكوادر الطبية على المعايير الأوروبية.</p>
+                        <span class="badge bg-secondary mt-2">قطاع الصحة</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <hr>
+
+        <section id="services" class="my-5">
+            <h2 class="section-title">درع الجالية: الدعم القانوني والاجتماعي</h2>
+            <p class="text-muted">نقدم الدعم والاستشارة لمواجهة التحديات القانونية والاجتماعية في أوروبا.</p>
+
+            <div class="card p-4 shadow-lg mb-4">
+                <h4 class="text-danger"><i class="fas fa-exclamation-triangle me-2"></i> نموذج طلب مساعدة عاجل</h4>
+                <form id="supportForm">
+                    <div class="mb-3">
+                        <label for="supportType" class="form-label">نوع الدعم المطلوب:</label>
+                        <select id="supportType" class="form-select" required>
+                            <option value="">-- اختر نوع الدعم --</option>
+                            <option value="legal">قانوني (لجوء/إقامة/جنسية)</option>
+                            <option value="social">اجتماعي (اندماج/تعليم)</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="issueSummary" class="form-label">ملخص المشكلة:</label>
+                        <textarea id="issueSummary" class="form-control" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger">إرسال طلب الدعم</button>
+                    <div id="supportAlert" class="mt-3 alert alert-success d-none"></div>
+                </form>
+            </div>
+
+            <div class="accordion" id="faqAccordion">
+                <h4 class="mt-5 text-primary">أسئلة شائعة</h4>
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">ما هي طبيعة الدعم القانوني المقدم؟</button></h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">
+                        نقدم استشارات أولية وتوجيه لشبكة محامين متعاونين في قضايا الهجرة واللجوء وحقوق الأسرة والعمل.
+                    </div></div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">هل خدماتكم مجانية؟</button></h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">
+                        الاستشارات الأولية والاجتماعية التي تقدمها المؤسسة مجانية، لكن قد يتم تطبيق رسوم رمزية على برامج العضوية أو الخدمات التخصصية لضمان استدامة عمل المؤسسة.
+                    </div></div>
+                </div>
+            </div>
+        </section>
+        
+        <hr>
+
+        <section id="branches" class="my-5">
+            <h2 class="section-title">فروعنا ونقاط التواصل في أوروبا</h2>
+            <p class="lead text-center text-muted">سيتم هنا دمج خريطة تفاعلية (باستخدام مكتبة مثل Leaflet.js) لتحديد مواقع الفروع وممثلي المدن الكبرى.</p>
+
+            <div class="row mt-4">
+                <div class="col-md-4 mb-3">
+                    <div class="card p-3 shadow-sm">
+                        <h5 class="text-primary"><i class="fas fa-flag me-2"></i> مكتب ألمانيا (المكتب الرئيسي)</h5>
+                        <p>**المدينة:** برلين - **التواصل:** info.de@syria-eu-foundation.org</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card p-3 shadow-sm">
+                        <h5 class="text-primary"><i class="fas fa-flag me-2"></i> فرع فرنسا</h5>
+                        <p>**المدينة:** باريس - **التواصل:** info.fr@syria-eu-foundation.org</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card p-3 shadow-sm">
+                        <h5 class="text-primary"><i class="fas fa-flag me-2"></i> فرع السويد</h5>
+                        <p>**المدينة:** ستوكهولم - **التواصل:** info.se@syria-eu-foundation.org</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-dark text-white p-4 mt-5">
+        <div class="container text-center">
+            <p>&copy; 2025 المؤسسة السورية الأوروبية للتنمية والتواصل. جميع الحقوق محفوظة.</p>
+            <div class="social-links mt-3">
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-linkedin-in fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="structureModal" tabindex="-1" aria-labelledby="structureModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="structureModalLabel">الهيكل التنظيمي للمؤسسة</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p class="lead">صورة أو رسم بياني يوضح التسلسل الهرمي:</p>
+                    
+                    <ul class="list-unstyled mt-4 text-start">
+                        <li><i class="fas fa-check-circle text-success me-2"></i> **مجلس الأمناء:** السلطة العليا والرقابية.</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i> **المدير التنفيذي:** التنفيذ والإدارة اليومية.</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i> **الإدارات المركزية:** (شراكات، مشاريع، مالية، قانونية).</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i> **اللجان التخصصية:** فرق الخبراء (صحة، خدمات، إدارة).</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i> **الفروع والشبكة:** الذراع الميداني في أوروبا.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="expertFormModal" tabindex="-1" aria-labelledby="expertFormModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="expertFormModalLabel">انضمام لشبكة الخبراء</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="expertRegistrationForm">
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">الاسم الكامل:</label>
+                            <input type="text" class="form-control" id="fullName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="country" class="form-label">دولة الإقامة الأوروبية:</label>
+                            <input type="text" class="form-control" id="country" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="expertise" class="form-label">مجال الخبرة الرئيسية:</label>
+                            <select id="expertise" class="form-select" required>
+                                <option value="">-- اختر المجال --</option>
+                                <option value="admin">الإدارة والحوكمة</option>
+                                <option value="health">الصحة والرعاية</option>
+                                <option value="infra">البنية التحتية والخدمات</option>
+                                <option value="edu">التعليم والأكاديميا</option>
+                                <option value="other">أخرى</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="linkedin" class="form-label">رابط صفحة LinkedIn (اختياري):</label>
+                            <input type="url" class="form-control" id="linkedin">
+                        </div>
+                        <button type="submit" class="btn btn-success">إرسال طلب الانضمام</button>
+                        <div id="expertAlert" class="mt-3 alert alert-success d-none"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. تأثير عداد الإحصائيات (Counter Up Effect)
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200; // سرعة العداد
+
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const increment = target / speed;
+
+                const updateCount = () => {
+                    if (count < target) {
+                        count += increment;
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            };
+
+            // تفعيل العدادات عند التمرير إليها (للتفاعل)
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5 // عندما يظهر 50% من العنصر
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target); // التوقف عن المراقبة بعد العد
+                    }
+                });
+            }, observerOptions);
+
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+
+            // 2. معالجة نموذج طلب الدعم (Service Form)
+            const supportForm = document.getElementById('supportForm');
+            const supportAlert = document.getElementById('supportAlert');
+
+            supportForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // هنا يتم إضافة كود الإرسال الفعلي إلى الخادم (Backend)
+                // حالياً هو محاكاة للإرسال:
+                const ticketNumber = Math.floor(1000 + Math.random() * 9000); // توليد رقم تذكرة وهمي
+                
+                supportAlert.classList.remove('d-none');
+                supportAlert.innerHTML = `شكراً لك! تم استلام طلبك بنجاح. **رقم التذكرة المرجعي هو: #${ticketNumber}**. سيتم التواصل معك قريباً.`;
+                
+                supportForm.reset(); // تفريغ النموذج
+                setTimeout(() => { supportAlert.classList.add('d-none'); }, 8000); // إخفاء الرسالة بعد 8 ثوان
+            });
+
+            // 3. معالجة نموذج تسجيل الخبراء (Expert Form)
+            const expertRegistrationForm = document.getElementById('expertRegistrationForm');
+            const expertAlert = document.getElementById('expertAlert');
+
+            expertRegistrationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // هنا يتم إضافة كود الإرسال الفعلي للخادم
+                
+                expertAlert.classList.remove('d-none');
+                expertAlert.innerHTML = `شكراً لاهتمامك! تم تسجيل بياناتك بنجاح. سيقوم فريق إدارة المشاريع بالتواصل معك لتوثيق الخبرة.`;
+                
+                expertRegistrationForm.reset();
+                setTimeout(() => { 
+                    expertAlert.classList.add('d-none');
+                    // إغلاق النافذة المنبثقة بعد الإرسال
+                    const modalElement = document.getElementById('expertFormModal');
+                    const modal = bootstrap.Modal.getInstance(modalElement);
+                    modal.hide();
+                }, 5000); 
+            });
+        });
+    </script>
 </body>
 </html>
