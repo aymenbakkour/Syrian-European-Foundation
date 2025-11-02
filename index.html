@@ -1,378 +1,35 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGA: الهيئة السورية الألمانية للتنمية والتواصل</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <style>
-        :root {
-            /* الألوان الأساسية للهيئة: الأزرق الداكن للجدية والذهبي للحيوية */
-            --primary-color: #0b2545; 
-            --secondary-color: #f7b731;
-            --light-bg: #f8f9fa;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--light-bg);
-            color: var(--primary-color);
-        }
-
-        .navbar-custom {
-            background-color: var(--primary-color) !important;
-        }
-        .navbar-custom .nav-link, .navbar-custom .navbar-brand {
-            color: white !important;
-        }
-
-        .hero-section {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-        .hero-section h1 {
-            font-size: 3rem;
-            border-bottom: 4px solid var(--secondary-color);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        .section-title {
-            color: var(--primary-color);
-            font-weight: bold;
-            border-bottom: 3px solid var(--secondary-color);
-            display: inline-block;
-            padding-bottom: 5px;
-            margin-bottom: 30px;
-        }
-
-        .sub-title {
-            color: var(--primary-color);
-            font-weight: bold;
-            font-size: 1.5rem;
-            margin-top: 20px;
-            margin-bottom: 15px;
-        }
-
-        .cta-card {
-            border-left: 5px solid var(--secondary-color);
-            transition: transform 0.3s;
-            background-color: white;
-        }
-        .cta-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .list-icon {
-            color: var(--secondary-color);
-            margin-left: 10px;
-        }
-    </style>
-</head>
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">🇸🇾 SGA: الهيئة السورية الألمانية 🇩🇪</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="تبديل التنقل">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#vision">الرؤية</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#goals">الأهداف</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#structure">الهيكلية</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">الدعم والتمثيل</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-warning text-dark ms-3" href="#join">شارك معنا</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <header id="home" class="hero-section">
-        <div class="container">
-            <h1>SGA: الهيئة السورية الألمانية قوة فاعلة لبناء الوطن الأم</h1>
-            <p class="lead mt-4 mb-5">المظلة الجامعة للسوريين في ألمانيا وجسر التواصل الفعال لدعم التنمية في سورية.</p>
-            <a href="#structure" class="btn btn-warning btn-lg me-3">اطلع على هيكليتنا وآلية عملنا <i class="fas fa-sitemap"></i></a>
-            <a href="#services" class="btn btn-outline-light btn-lg">ادعم الجالية والمصالح السورية <i class="fas fa-shield-alt"></i></a>
-        </div>
-    </header>
-
-    <main class="container my-5">
-
-        <section id="vision" class="my-5 p-4 bg-white shadow-sm">
-            <h2 class="section-title"><i class="fas fa-eye me-2"></i> رؤيتنا المستقبلية</h2>
-            <div class="row">
-                <div class="col-12">
-                    <div class="alert alert-primary p-4 border-start border-5 border-warning">
-                        <p class="lead mb-0">نحن، المغتربين السوريين، نرى في الهيئة السورية الألمانية **أداة قوية وفعالة جداً** لبناء هذا الوطن العظيم ليكون في قمة الأمم، ونقطة استقطاب لكل مهتم. رؤيتنا هي أن نكون **قوة فاعلة** في أماكن تواجدنا (ألمانيا) و**شريكاً أساسياً** في بناء سورية المستقبل، عبر تحقيق التكامل الوطني والتنمية المستدامة.</p>
-                    </div>
-                    <p class="mt-3 text-muted small">هذه الرؤية تتجسد في قدرتنا على تلميع شتات السوريين وتوظيف خبراتهم وإمكاناتهم المادية والعلمية لخدمة حاجة الوطن الملحة.</p>
-                </div>
-            </div>
-        </section>
-
-        <hr>
-        
-        <section id="goals" class="my-5">
-            <h2 class="section-title"><i class="fas fa-bullseye me-2"></i> أهداف الهيئة السورية الألمانية (SGA)</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="card p-4 h-100 shadow-sm cta-card">
-                        <h4 class="text-primary"><i class="fas fa-users-cog me-2"></i> الهدف المؤسسي والسياسي</h4>
-                        <p>بناء منظمة مجتمع مدني تجمع شتات السوريين في جسم واحد، وتعمل على تمثيل مصالحهم ودعم قضاياهم أمام السلطات الألمانية والمؤسسات الدولية ككتلة مؤثرة.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="card p-4 h-100 shadow-sm cta-card">
-                        <h4 class="text-primary"><i class="fas fa-chart-line me-2"></i> الهدف التنموي والاقتصادي</h4>
-                        <p>أن تكون الهيئة **صلة وصل وجسر عبور** لدعم الوطن الأم في التنمية الاقتصادية، والاجتماعية، والتعليمية، والصحية، والزراعية عبر نقل الخبرات والمشاريع الألمانية.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr>
-
-        <section id="structure" class="my-5">
-            <h2 class="section-title"><i class="fas fa-cogs me-2"></i> الهيكلية وآلية العمل المتبعة</h2>
-
-            <h3 class="sub-title"><i class="fas fa-sitemap me-2"></i> الهيكل التنظيمي والفروع في المقاطعات الألمانية</h3>
-            
-            <div class="card p-4 shadow-sm mb-4">
-                <h4 class="text-warning"><i class="fas fa-users me-2"></i> الهيكل الإداري والمكاتب التنفيذية</h4>
-                <p>يتكون الهيكل من **مجلس الإدارة** (7 أشخاص) الذي يستلم رئاسة الهيئة وإدارة ملفاتها، و **المكتب التنفيذي المركزي** الذي يتخذ من ألمانيا مقراً له.</p>
-                <p class="small text-muted">**المكاتب التنفيذية الثمانية** هي الذراع العملي للهيئة، وتشمل مكاتب متخصصة مثل القانوني، الزراعي، والطبي، ويتم تشكيلها بعد الحصول على الترخيص الألماني.</p>
-                <button class="btn btn-outline-primary mt-3 w-50 mx-auto" data-bs-toggle="modal" data-bs-target="#structureModal">
-                    عرض قائمة المكاتب التخصصية بالكامل
-                </button>
-            </div>
-
-            <h4 class="sub-title"><i class="fas fa-map-marked-alt me-2"></i> الممثلون الإقليميون في ألمانيا</h4>
-            <div class="row mt-4">
-                <div class="col-md-4 mb-3">
-                    <div class="card p-3 shadow-sm cta-card">
-                        <h5 class="text-primary"><i class="fas fa-city me-2"></i> المكتب الرئيسي (برلين/براندنبورغ)</h5>
-                        <p>**المدينة:** برلين - **التواصل:** info.de@sga-syria.org</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card p-3 shadow-sm cta-card">
-                        <h5 class="text-primary"><i class="fas fa-warehouse me-2"></i> ممثل الشمال (هامبورغ/بريمن)</h5>
-                        <p>**المدن:** هامبورغ - **التواصل:** north@sga-syria.org</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card p-3 shadow-sm cta-card">
-                        <h5 class="text-primary"><i class="fas fa-industry me-2"></i> ممثل الجنوب (بافاريا/بادن)</h5>
-                        <p>**المدن:** ميونخ/شتوتغارت - **التواصل:** south@sga-syria.org</p>
-                    </div>
-                </div>
-            </div>
-
-            <hr class="my-5">
-
-            <h3 class="sub-title"><i class="fas fa-tasks me-2"></i> آلية العمل والمشاريع التطبيقية (نقل الخبرات)</h3>
-            
-            <div class="card p-4 shadow-sm bg-light mb-4">
-                <h4 class="text-success"><i class="fas fa-tools me-2"></i> المهام التشغيلية الرئيسية</h4>
-                <ul class="list-unstyled row">
-                    <li class="col-md-6"><i class="fas fa-check list-icon"></i> **التسويق الاقتصادي:** تسويق المنتج السوري في دول الاتحاد الأوروبي.</li>
-                    <li class="col-md-6"><i class="fas fa-check list-icon"></i> **التنسيق الحكومي:** الربط والتنسيق المباشر مع الوزارات السورية عبر منسقين متخصصين.</li>
-                    <li class="col-md-6"><i class="fas fa-check list-icon"></i> **تمويل المشاريع:** البحث عن قنوات لتمويل المشاريع التنموية عبر المنظمات الألمانية والدولية.</li>
-                    <li class="col-md-6"><i class="fas fa-check list-icon"></i> **قياس الأداء:** وضع مؤشر قياس للأداء وعدد المشاريع المنجزة ومذكرات التفاهم الموقعة.</li>
-                </ul>
-            </div>
-
-            <h4 class="sub-title text-success"><i class="fas fa-lightbulb me-2"></i> أمثلة لمشاريع خبرات قابلة للتنفيذ (من ألمانيا إلى سورية)</h4>
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="card p-3 h-100 shadow-sm cta-card">
-                        <h6 class="text-primary"><i class="fas fa-graduation-cap list-icon"></i> **التدريب المهني المزدوج (Dual VET)**</h6>
-                        <p class="small">نقل نموذج التدريب الألماني الذي يجمع الدراسة النظرية بالعمل الميداني لرفع كفاءة الأيدي العاملة في القطاعات الحرفية والصناعية بسورية.</p>
-                    </div>
-                </div>
-                 <div class="col-lg-6 mb-4">
-                    <div class="card p-3 h-100 shadow-sm cta-card">
-                        <h6 class="text-primary"><i class="fas fa-sync-alt list-icon"></i> **إدارة النفايات وإعادة التدوير**</h6>
-                        <p class="small">نقل خبرات البلديات الألمانية في فصل ومعالجة النفايات وتوليد الطاقة منها، وتأسيس مشاريع بيئية مستدامة على مستوى المدن السورية.</p>
-                    </div>
-                </div>
-                <div class="col-lg-12 mb-4">
-                    <div class="card p-3 h-100 shadow-sm cta-card">
-                        <h6 class="text-primary"><i class="fas fa-laptop-code list-icon"></i> **التوأمة بين الجامعات المتخصصة**</h6>
-                        <p class="small">ربط أقسام الهندسة الزراعية، المعلوماتية، والطب في الجامعات السورية بنظيراتها الألمانية لتبادل الأبحاث والمناهج وتطوير برامج الابتعاث والتدريب.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="my-5">
-            <h2 class="section-title"><i class="fas fa-shield-alt me-2"></i> خدمات الجالية والحماية القانونية</h2>
-            <p class="text-muted lead">الهيئة السورية الألمانية (SGA) تعمل على جمع السوريين ضمن جسم مؤسساتي واحد ككتلة مؤثرة في ألمانيا لتمثيل مصالحهم.</p>
-
-            <div class="card p-4 shadow-lg mb-4">
-                <h4 class="text-danger"><i class="fas fa-exclamation-triangle me-2"></i> نموذج طلب مساعدة عاجل</h4>
-                <form id="supportForm">
-                    <div class="mb-3">
-                        <label for="supportType" class="form-label">نوع الدعم المطلوب:</label>
-                        <select id="supportType" class="form-select" required>
-                            <option value="">-- اختر نوع الدعم --</option>
-                            <option value="legal">قانوني (لجوء/إقامة/جنسية)</option>
-                            <option value="social">اجتماعي (اندماج/تعليم)</option>
-                            <option value="representation">تمثيل مصالح وقضايا</option>
-                            <option value="other">أخرى</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="issueSummary" class="form-label">ملخص المشكلة:** (مراعاة للخصوصية، سيتم التواصل معك لمزيد من التفاصيل)</label>
-                        <textarea id="issueSummary" class="form-control" rows="3" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-danger">إرسال طلب الدعم</button>
-                    <div id="supportAlert" class="mt-3 alert alert-success d-none"></div>
-                </form>
-            </div>
-        </section>
-        
-    </main>
-    
-    <footer class="bg-dark text-white p-4 mt-5">
-        <div class="container text-center">
-            <p>&copy; 2025 SGA: الهيئة السورية الألمانية للتنمية والتواصل. جميع الحقوق محفوظة.</p>
-            <p class="small mt-2">تتكون مالية الهيئة من اشتراكات الأعضاء، وتبرعات الأفراد ورجال الأعمال، وبعض المنح من منظمات دولية وألمانية.</p>
-        </div>
-    </footer>
-
-    <div class="modal fade" id="structureModal" tabindex="-1" aria-labelledby="structureModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="structureModalLabel">الهيكل التنظيمي والمكاتب التخصصية للهيئة السورية الألمانية</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
-                </div>
-                <div class="modal-body">
-                    <h4 class="text-primary text-center">المكاتب التنفيذية للهيئة (الذراع التنفيذي)</h4>
-                    <p class="text-muted text-center">ترتبط هذه المكاتب باللجان الخاصة بكل وزارة في سورية من خلال منسق عام.</p>
-
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-cogs text-warning me-2"></i> **المكتب الهندسي والمعلوماتية**</li>
-                                <li><i class="fas fa-leaf text-warning me-2"></i> **المكتب الزراعي**</li>
-                                <li><i class="fas fa-chart-line text-warning me-2"></i> **المكتب الاقتصادي والتجاري**</li>
-                                <li><i class="fas fa-gavel text-warning me-2"></i> **المكتب القانوني**</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-book-open text-warning me-2"></i> **المكتب التعليمي والثقافي**</li>
-                                <li><i class="fas fa-notes-medical text-warning me-2"></i> **المكتب الطبي والصحة العامة**</li>
-                                <li><i class="fas fa-rss text-warning me-2"></i> **مكتب الإعلام والعلاقات العامة**</li>
-                                <li><i class="fas fa-globe-asia text-warning me-2"></i> **مكتب التنسيق مع الوطن الأم (دمشق)**</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <p class="mt-4 text-center small text-danger">ملاحظة: يتم تشكيل المكاتب بعد الحصول على قرار إقرار المحكمة للهيئة وفق القوانين الألمانية.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </nav>
+</aside>
 
-    <div class="modal fade" id="expertFormModal" tabindex="-1" aria-labelledby="expertFormModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="expertFormModalLabel">نداء الخبرات السورية: تسجيل المختصين</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="text-muted small">الهدف: بناء قاعدة بيانات وطنية للخبرات والكفاءات في المهجر، لتصبح الأساس لتبادل المعرفة والمشاريع المشتركة مع الوطن الأم.</p>
-                    <form id="expertRegistrationForm">
-                        <div class="mb-3">
-                            <label for="fullName" class="form-label">الاسم الكامل:</label>
-                            <input type="text" class="form-control" id="fullName" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="country" class="form-label">دولة الإقامة (ألمانيا):</label>
-                            <input type="text" class="form-control" id="country" value="ألمانيا" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="expertise" class="form-label">المكتب الاختصاصي ومجال الخبرة:</label>
-                            <select id="expertise" class="form-select" required>
-                                <option value="">-- اختر المكتب --</option>
-                                <option value="engineer">الهندسة والمعلوماتية</option>
-                                <option value="agriculture">الزراعي</option>
-                                <option value="economic">الاقتصادي والتجاري</option>
-                                <option value="legal">القانوني</option>
-                                <option value="health">الطبي والصحة العامة</option>
-                                <option value="edu">التعليمي والثقافي</option>
-                                <option value="media">الإعلام والعلاقات العامة</option>
-                                <option value="other">أخرى</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="expertiseDetails" class="form-label">الشهادة، الخبرة، وإمكانية التواصل والتعاون لخدمة الداخل:</label>
-                             <textarea class="form-control" id="expertiseDetails" rows="3" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-success">إرسال طلب الانضمام</button>
-                        <div id="expertAlert" class="mt-3 alert alert-success d-none"></div>
-                    </form>
-                </div>
-            </div>
-        </div>
+<!-- overlay -->
+<div class="overlay" id="overlay" tabindex="-1" aria-hidden="true"></div>
+
+<!-- Header -->
+<header class="site" role="banner">
+  <div class="brand">
+    <div class="logo" aria-hidden="true">SGA</div>
+    <div>
+      <h1>الهيئة السورية الألمانية</h1>
+      <p class="muted">الجامع المؤسسي والقانوني للسوريين في دول الاغتراب</p>
     </div>
+  </div>
+  <div style="display:flex; gap:12px; align-items:center">
+    <a class="cta" href="#contact">سجل خبرتك الآن</a>
+  </div>
+</header>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Main content -->
+<div class="container">
+  <main class="grid" role="main">
+    <div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. معالجة نموذج طلب الدعم (Service Form)
-            const supportForm = document.getElementById('supportForm');
-            const supportAlert = document.getElementById('supportAlert');
-
-            supportForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                // محاكاة الإرسال إلى الخادم
-                const ticketNumber = Math.floor(1000 + Math.random() * 9000); 
-                
-                supportAlert.classList.remove('d-none');
-                supportAlert.innerHTML = `شكراً لك! تم استلام طلبك بنجاح. **رقم التذكرة المرجعي هو: #${ticketNumber}**. سيتم التواصل معك قريباً.`;
-                
-                supportForm.reset(); 
-                setTimeout(() => { supportAlert.classList.add('d-none'); }, 8000); 
-            });
-
-            // 2. معالجة نموذج تسجيل الخبراء (Expert Form)
-            const expertRegistrationForm = document.getElementById('expertRegistrationForm');
-            const expertAlert = document.getElementById('expertAlert');
-
-            expertRegistrationForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                // محاكاة الإرسال إلى الخادم
-                
-                expertAlert.classList.remove('d-none');
-                expertAlert.innerHTML = `شكراً لاهتمامك! تم تسجيل بياناتك بنجاح. سيقوم فريق إدارة المشاريع بالتواصل معك لتوثيق الخبرة وتحديد المهام.`;
-                
-                expertRegistrationForm.reset();
-                setTimeout(() => { 
-                    expertAlert.classList.add('d-none');
-                    // إغلاق النافذة المنبثقة بعد الإرسال
-                    const modalElement = document.getElementById('expertFormModal');
-                    const modal = bootstrap.Modal.getInstance(modalElement);
-                    if (modal) {
-                        modal.hide();
-                    }
-                }, 5000); 
-            });
-        });
-    </script>
-</body>
-</html>
+      <section id="about" class="card" aria-labelledby="aboutTitle">
+        <h2 id="aboutTitle">مقدمة — التعريف</h2>
+        <p class="lead">
+          نحن السوريون المغتربون أبناء الوطن الأم؛ نؤمن بأن تواجدنا في الخارج يمثل قوة نوعية قادرة على دعم الثورة
+          والبناء الوطني. هذه الورقة تهدف لتأسيس هيئة مؤسسية قانونية تمثل الشتات السوري في أوروبا، وتحوّل تواجده إلى
+          قوة فاعلة في المجتمعات الأوروبية وشريك استراتيجي لمرحلة إعادة الإعمار والتنمية في الوطن.
+        </p>
+        <p>
