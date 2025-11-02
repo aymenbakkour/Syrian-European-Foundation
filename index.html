@@ -1,3 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>الهيئة السورية الألمانية — ورقة تأسيسية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#004d99;
+    --accent:#e6b31e;
+    --muted:#6b6b6b;
+    --bg:#f4f6f9;
+    --card:#ffffff;
+    --shadow: 0 6px 18px rgba(15,23,42,0.08);
+    --radius:12px;
+  }
+
+  /* Base */
+  html,body{height:100%; margin:0; font-family:'Tajawal',sans-serif; background:var(--bg); color:#222; -webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .container{max-width:1200px; margin:24px auto; padding:20px}
+  header.site{
+    position:sticky; top:0; z-index:90; background:linear-gradient(180deg,var(--card),#fbfdff);
+    padding:18px 20px; box-shadow:var(--shadow); border-bottom:1px solid #eef2f7;
+    display:flex; align-items:center; gap:16px; justify-content:space-between; border-radius:0 0 10px 10px;
+  }
+  header .brand{display:flex; align-items:center; gap:12px}
+  .logo {
+    width:56px; height:56px; border-radius:10px; background:linear-gradient(135deg,var(--primary),#0066cc);
+    display:flex; align-items:center; justify-content:center; color:#fff; font-weight:900; font-size:18px;
+    box-shadow:0 6px 18px rgba(0,77,153,0.15);
+  }
+  header h1{margin:0; font-size:18px; font-weight:900; color:var(--primary)}
+  header p{margin:0; font-size:13px; color:var(--muted)}
+
+  /* Sidebar (light, from right) */
+  .menu-btn{
+    position:fixed; top:14px; right:14px; z-index:120; width:48px; height:48px; border-radius:10px;
+    border:0; background:var(--card); box-shadow:var(--shadow); display:flex; align-items:center; justify-content:center;
+    cursor:pointer; font-size:22px;
+  }
+  .sidebar {
+    position:fixed; top:0; right:0; height:100vh; width:0; overflow:hidden; z-index:110;
+    background:var(--card); box-shadow:-16px 0 40px rgba(8,20,50,0.08); transition:width .36s cubic-bezier(.2,.9,.2,1);
+    display:flex; flex-direction:column;
+  }
+  .sidebar.open{ width:320px; max-width:86%; }
+  .sidebar .head{ padding:20px 18px; border-bottom:1px solid #eef2f7; display:flex; gap:12px; align-items:center; justify-content:space-between;}
+  .sidebar .head h3{margin:0; font-size:16px; color:var(--primary)}
+  .sidebar .head .close{ background:#fff; border:0; font-size:20px; cursor:pointer; padding:6px 8px; border-radius:8px; box-shadow:inset 0 -1px 0 rgba(0,0,0,0.03)}
+  .nav-list{ padding:12px; overflow:auto; flex:1 }
+  .nav-list a{ display:flex; gap:10px; align-items:center; padding:12px 14px; border-radius:10px; margin:6px 4px; text-decoration:none; color:#222; font-weight:700; transition:all .18s }
+  .nav-list a span.icon{ width:34px; height:34px; display:inline-flex; align-items:center; justify-content:center; border-radius:8px; background:#f6f9ff; color:var(--primary); font-weight:900}
+  .nav-list a:hover{ background:#fbfbff; transform:translateX(-6px) }
+  .nav-group{ margin-top:10px; padding:8px 4px }
+  .nav-sub{ display:flex; flex-direction:column; gap:6px; margin-top:8px; padding-right:8px }
+
+  /* overlay */
+  .overlay{ position:fixed; inset:0; background:rgba(6,15,30,0.28); opacity:0; pointer-events:none; transition:opacity .28s; z-index:100 }
+  .overlay.show{ opacity:1; pointer-events:auto }
+
+  /* Page content */
+  main{ padding:28px 0 }
+  section.card{ background:var(--card); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); margin-bottom:18px; border:1px solid #eef3fb }
+  section.card h2{ margin:0 0 12px 0; color:var(--primary); font-size:20px; border-right:6px solid var(--accent); padding-right:12px; display:inline-block; font-weight:900 }
+  section.card p{ color:#333; line-height:1.75; margin:10px 0 }
+  .muted{ color:var(--muted); font-size:14px }
+
+  /* two-column on wide screens */
+  .grid{ display:block }
+  @media(min-width:900px){
+    .grid{ display:grid; grid-template-columns:1fr 360px; gap:18px; align-items:start }
+    .aside-card{ position:sticky; top:86px }
+  }
+
+  /* Accordion (offices/projects) */
+  .accordion{ border-radius:10px; overflow:hidden; border:1px solid #eef2f7 }
+  .accordion-item{ border-bottom:1px solid #eef2f7; background:transparent }
+  .accordion-item:last-child{ border-bottom:0 }
+  .acc-head{ display:flex; justify-content:space-between; align-items:center; padding:14px 16px; cursor:pointer; background:linear-gradient(90deg,#fff,#fbfdff); font-weight:700 }
+  .acc-body{ padding:0 16px 16px 16px; display:none; color:#333 }
+  .acc-head .chev{ transition:transform .25s }
+  .acc-head.active .chev{ transform:rotate(180deg) }
+
+  /* project card */
+  .project{ border-left:5px solid var(--accent); padding:12px; margin:12px 0; background:#fff; border-radius:8px; box-shadow:0 4px 20px rgba(14,40,80,0.03) }
+  .project h4{ margin:0; color:var(--primary); font-size:16px }
+  .project p{ margin:8px 0 0 0; color:#444; font-size:14px }
+
+  /* CTA & footer */
+  .cta{ display:inline-block; background:var(--accent); color:var(--primary); padding:12px 18px; border-radius:999px; font-weight:900; text-decoration:none; box-shadow:0 8px 26px rgba(230,179,30,0.12) }
+  footer{ text-align:center; color:var(--muted); font-size:13px; padding:30px 8px }
+
+  /* small screens tweaks */
+  @media(max-width:420px){
+    header .brand h1{ font-size:15px }
+    .menu-btn{ top:10px; right:10px; width:44px; height:44px; font-size:20px }
+  }
+
+  /* small helper */
+  .small{ font-size:13px; color:var(--muted) }
+  .lead{ font-size:15px; color:#333; line-height:1.8 }
+
+  /* accessible focus */
+  button:focus, a:focus{ outline:3px solid rgba(0,77,153,0.12); outline-offset:3px }
+</style>
+</head>
+<body>
+
+<!-- Menu button -->
+<button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="head">
+    <div style="display:flex; gap:10px; align-items:center">
+      <div class="logo">SGA</div>
+      <div>
+        <h3>الهيئة السورية الألمانية</h3>
+        <div class="small muted">ورقة تأسيسية — نسخة تفاعلية</div>
+      </div>
+    </div>
+    <button class="close" id="closeBtn" aria-label="إغلاق القائمة">×</button>
+  </div>
+
+  <nav class="nav-list" aria-label="القائمة الرئيسية">
+    <div class="nav-group">
+      <a href="#about"><span class="icon">عن</span> <div>التعريف والمقدمة</div></a>
+      <a href="#why"><span class="icon">لماذا</span> <div>لماذا نأسسها</div></a>
+      <a href="#vision"><span class="icon">🎯</span> <div>الرؤية والأهداف</div></a>
+      <a href="#offices"><span class="icon">🏛️</span> <div>المكاتب التنفيذية</div></a>
+      <a href="#functions"><span class="icon">⚙️</span> <div>الوظائف والمهام</div></a>
+      <a href="#projects"><span class="icon">🚀</span> <div>مشاريع التوأمة</div></a>
+      <a href="#platform"><span class="icon">💻</span> <div>المنصة الرقمية</div></a>
+      <a href="#governance"><span class="icon">📜</span> <div>الحوكمة والتراخيص</div></a>
+      <a href="#membership"><span class="icon">💰</span> <div>العضوية والمالية</div></a>
+      <a href="#contact"><span class="icon">📣</span> <div>نداء الخبرات / تسجيل</div></a>
+    </div>
+
+    <div style="padding:10px 8px; border-top:1px dashed #eef3fb; margin-top:6px">
+      <div class="small muted">روابط سريعة</div>
+      <div class="nav-sub">
+        <a href="#about">مقدمة</a>
+        <a href="#vision">الرؤية</a>
+        <a href="#offices">المكاتب</a>
+        <a href="#projects">المشاريع</a>
       </div>
     </div>
   </nav>
@@ -33,3 +180,289 @@
           قوة فاعلة في المجتمعات الأوروبية وشريك استراتيجي لمرحلة إعادة الإعمار والتنمية في الوطن.
         </p>
         <p>
+          تأسيس الهيئة يأتي استجابةً للتجمع الكثيف للسوريين في ألمانيا وتنوع خبراتهم عبر قطاعات حيوية متعددة. الهدف الأساسي
+          تمثيل المصالح العليا للسوريين في المهجر أمام الهيئات الأوروبية والدولية، وتفعيل قنوات التواصل القانوني والتقني مع
+          الوطن الأم لمرحلة ما بعد التحرير.
+        </p>
+      </section>
+
+      <section id="why" class="card" aria-labelledby="whyTitle">
+        <h2 id="whyTitle">لماذا هذه الهيئة؟</h2>
+        <ul style="margin:12px 0; padding-right:12px; list-style:none">
+          <li style="margin-bottom:8px"><strong>تحويل التشتت إلى قوة:</strong> استثمار الكفاءات والموارد المادية والسعي للتكامل الوطني.</li>
+          <li style="margin-bottom:8px"><strong>حلقة وصل قانونية:</strong> تمثيل مصالح السوريين أمام المؤسسات الأوروبية والدولية.</li>
+          <li style="margin-bottom:8px"><strong>جسر اقتصادي واستراتيجي:</strong> تنسيق استثمارات ومشاريع توأمة تخدم التنمية المستدامة.</li>
+        </ul>
+      </section>
+
+      <section id="vision" class="card" aria-labelledby="visionTitle">
+        <h2 id="visionTitle">الرؤية والأهداف العامة</h2>
+        <p><strong>الرؤية:</strong> أن تكون الهيئة الجسم المؤسسي الجامع لشتات السوريين في ألمانيا، وقوة فاعلة تدعم بناء الوطن الأم ليكون مركز جذب حضاري وتنموي.</p>
+
+        <h3 style="margin-top:14px; color:var(--primary)">الأهداف العامة</h3>
+        <ul style="padding-right:12px; list-style:none">
+          <li style="margin-bottom:8px">جمع الشتات السوري والتمثيل المؤثر أمام الهيئات والمؤسسات.</li>
+          <li style="margin-bottom:8px">جسر للتنمية: دعم المشاريع الاقتصادية، الاجتماعية، التعليمية، الصحية والزراعية.</li>
+          <li style="margin-bottom:8px">تعزيز اندماج المغتربين في ألمانيا مع الحفاظ على الهوية الوطنية وتحويلهم إلى جسر تفاهم حضاري.</li>
+        </ul>
+      </section>
+
+      <section id="offices" class="card" aria-labelledby="officesTitle">
+        <h2 id="officesTitle">المكاتب التنفيذية وآلية التشكيل</h2>
+        <p class="small muted">تعمل هذه المكاتب كأذرع تنفيذية، ويتم تشكيلها عبر لجنة تأسيسية ونظام داخلي يضمن التمثيل والكفاءة.</p>
+
+        <div class="accordion" id="offAccordion">
+          <div class="accordion-item">
+            <div class="acc-head" data-target="acc1">المكتب الهندسي والمعلوماتية <span class="chev">▾</span></div>
+            <div class="acc-body" id="acc1">
+              <p>تسخير الخبرات الهندسية والتقنية لدعم البنية التحتية، مشاريع إعادة الإعمار، ونقل تقنيات معلوماتية حديثة للوطن.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="acc-head" data-target="acc2">المكتب الزراعي <span class="chev">▾</span></div>
+            <div class="acc-body" id="acc2">
+              <p>نقل تقانات زراعية حديثة، تطوير سلاسل القيمة، وتأمين أسواق تصديرية للمنتجات السورية في أوروبا.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="acc-head" data-target="acc3">المكتب الاقتصادي والتجاري <span class="chev">▾</span></div>
+            <div class="acc-body" id="acc3">
+              <p>جذب الاستثمارات، إنشاء بنك معلومات الاستثمار، ودعم التسويق والتصدير للمنتجات السورية.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="acc-head" data-target="acc4">المكتب القانوني <span class="chev">▾</span></div>
+            <div class="acc-body" id="acc4">
+              <p>صياغة النظام الداخلي، التمثيل القانوني، ودعم قضايا السوريين في ألمانيا وأوروبا.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="acc-head" data-target="acc5">المكتب التعليمي والثقافي <span class="chev">▾</span></div>
+            <div class="acc-body" id="acc5">
+              <p>دعم التعليم والتبادل الثقافي، برامج لترميم الهوية الوطنية لدى الجيل الجديد في المهجر.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="acc-head" data-target="acc6">المكتب الطبي والصحة العامة <span class="chev">▾</span></div>
+            <div class="acc-body" id="acc6">
+              <p>تنظيم حملات صحية، تبادل خبرات طبية، ولإطلاق ملتقيات للأطباء والمهتمين.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="acc-head" data-target="acc7">مكتب الإعلام والعلاقات العامة <span class="chev">▾</span></div>
+            <div class="acc-body" id="acc7">
+              <p>بناء صورة الهيئة، التواصل الإعلامي، وإدارة منصات التعريف والتفاعل الرقمي.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="acc-head" data-target="acc8">مكتب التنسيق مع الوطن الأم (دمشق) <span class="chev">▾</span></div>
+            <div class="acc-body" id="acc8">
+              <p>نقطة اتصال رسمية للتنسيق مع الوزارات السورية وتوقيع مذكرات تفاهم.</p>
+            </div>
+          </div>
+        </div>
+
+        <p style="margin-top:12px" class="small muted">آلية التشكيل: فتح باب الترشيح، لجنة تنسيقية، انتخاب رئيس ونائب لكل مكتب، وكتابة نظام داخلي يضمن المساءلة والشفافية.</p>
+      </section>
+
+      <section id="functions" class="card" aria-labelledby="funcTitle">
+        <h2 id="funcTitle">الوظائف والمهام الرئيسية</h2>
+        <ul style="padding-right:12px; list-style:none">
+          <li style="margin-bottom:10px"><strong>التنسيق الوزاري المباشر:</strong> إنشاء آلية ربط مع وزارات الوطن لتبادل الخبرات والبيانات.</li>
+          <li style="margin-bottom:10px"><strong>نقاط اتصال دائمة:</strong> تعيين منسقين لكل وزارة ضمن الهيئة لضمان استمرارية العمل.</li>
+          <li style="margin-bottom:10px"><strong>تحويل الاحتياجات إلى مشاريع:</strong> حصر احتياجات البلديات والمستشفيات والمدارس وتقديم خطط تنفيذ وميزانيات.</li>
+          <li style="margin-bottom:10px"><strong>تأمين التمويل:</strong> البحث عن منح وتمويل من مؤسسات أوروبية ودولية.</li>
+          <li style="margin-bottom:10px"><strong>تسويق المنتج المحلي:</strong> وضع معايير جودة وعمل خطط تسويق للمنتجات السورية في أوروبا.</li>
+          <li style="margin-bottom:10px"><strong>بنك معلومات الاستثمار:</strong> قاعدة مركزية لرواد الأعمال والخبراء الاقتصاديين ومنتدى استثماري سوري-أوروبي.</li>
+        </ul>
+      </section>
+
+      <section id="projects" class="card" aria-labelledby="projectsTitle">
+        <h2 id="projectsTitle">مشاريع التوأمة الاستراتيجية</h2>
+
+        <div class="project">
+          <h4>1. مشروع "وزارتي صديقتي" (التوأمة الحكومية)</h4>
+          <p>بناء شراكات هيكلية بين الوزارات السورية ونظيراتها الأوروبية لتبادل الخبرات، توقيع مذكرات تفاهم، وبرامج تدريب وبناء قدرات.</p>
+        </div>
+
+        <div class="project">
+          <h4>2. مشروع "مدينتي صديقتي" (التنمية المحلية والإدارة الذكية)</h4>
+          <p>توأمة بلديات لنقل خبرات الإدارة الذكية: رقمنة الخدمات، إدارة النفايات والطاقة، وتطوير النقل الحضري.</p>
+        </div>
+
+        <h3 style="margin-top:14px; color:var(--primary)">المنصة الرقمية التفاعلية</h3>
+        <p>تأسيس منصة رقمية لإدارة المشاريع، قاعدة بيانات الكفاءات، ونظام شفاف لتتبع تنفيذ المشاريع وقياس الأثر.</p>
+      </section>
+
+      <section id="governance" class="card" aria-labelledby="govTitle">
+        <h2 id="govTitle">الحوكمة والتقييم والتراخيص</h2>
+        <p><strong>المساءلة:</strong> مؤشرات أداء تشمل عدد مذكرات التفاهم، المشاريع المنجزة، والأموال المستخدمة على أرض الواقع.</p>
+        <p><strong>اللوبي والدبلوماسية الشعبية:</strong> بناء كتلة ضغط مناصرة في عواصم القرار الأوروبية لدعم القضايا الوطنية.</p>
+        <p><strong>التراخيص القانونية:</strong> صياغة نظام داخلي يتوافق مع القوانين الألمانية والتقديم للجهات القضائية المختصة للحصول على الترخيص.</p>
+      </section>
+
+      <section id="membership" class="card" aria-labelledby="memTitle">
+        <h2 id="memTitle">العضوية والمالية واللجنة التأسيسية</h2>
+        <p><strong>العضوية:</strong> يحق لكل السوريين المقيمين في دول الاتحاد الأوروبي الانضمام وفق شروط تحدد لاحقاً.</p>
+        <p><strong>مصادر التمويل:</strong> اشتراكات الأعضاء، تبرعات، منح من منظمات دولية، وصندوق استثمار اجتماعي لتوفير تمويل مستدام.</p>
+        <p><strong>اللجنة التأسيسية:</strong> تتألف من خبراء في المجتمع المدني، القانون، الهندسة، الصحة والاقتصاد؛ ومهمتها كتابة النظام الداخلي وتحديد عضويات المكاتب.</p>
+      </section>
+
+      <section id="contact" class="card" aria-labelledby="contactTitle">
+        <h2 id="contactTitle">نداء الخبرات — سجل الآن</h2>
+        <p>أُطلقنا نموذج تسجيل موحَّد لكافة الكفاءات: التخصص، الشهادة، الخبرة، المكتب المرغوب والمستعد للتعاون. قاعدة البيانات ستكون أساساً لربط المشاريع والكوادر داخلياً وخارجياً.</p>
+
+        <!-- Interactive mini-form (client-side only) -->
+        <form id="signForm" style="margin-top:12px; display:grid; gap:10px; max-width:720px; margin-left:auto;">
+          <div style="display:flex; gap:10px; flex-wrap:wrap">
+            <input name="name" id="name" placeholder="الاسم الكامل" required style="flex:1; padding:10px; border-radius:8px; border:1px solid #e7eefc">
+            <input name="email" id="email" placeholder="البريد الإلكتروني" type="email" required style="flex:1; padding:10px; border-radius:8px; border:1px solid #e7eefc">
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap">
+            <input name="specialty" id="specialty" placeholder="التخصص (مثال: طب/هندسة/زراعة...)" style="flex:1; padding:10px; border-radius:8px; border:1px solid #e7eefc">
+            <input name="location" id="location" placeholder="المدينة / الدولة" style="flex:1; padding:10px; border-radius:8px; border:1px solid #e7eefc">
+          </div>
+          <textarea id="notes" placeholder="موجز عن خبرتك ورغبتك بالمساهمة" rows="4" style="padding:10px; border-radius:8px; border:1px solid #e7eefc"></textarea>
+
+          <div style="display:flex; gap:10px; align-items:center">
+            <button type="submit" class="cta" style="background:var(--accent); color:var(--primary)">أرسل تسجيلك</button>
+            <div class="small muted">هذا نموذج تجريبي - البيانات تحفظ محلياً مؤقتاً (demo)</div>
+          </div>
+
+          <div id="formMsg" class="small muted" style="min-height:20px"></div>
+        </form>
+      </section>
+
+    </div>
+
+    <aside class="aside-card">
+      <section class="card small" aria-labelledby="asideTitle">
+        <h2 id="asideTitle">لمحة سريعة</h2>
+        <p class="muted">الهيئة تهدف لتسهيل التواصل بين المغتربين والجهات الرسمية في الوطن، خلق شراكات توأمة، وتأمين موارد مستدامة للمشاريع التنموية.</p>
+        <div style="margin-top:12px">
+          <a class="cta" href="#projects" style="display:inline-block">اطلع على المشاريع</a>
+        </div>
+      </section>
+
+      <section class="card small" aria-labelledby="newsTitle">
+        <h2 id="newsTitle">آلية العمل المختصرة</h2>
+        <ol style="padding-right:12px; margin:8px 0">
+          <li>تشكيل اللجنة التأسيسية وصياغة النظام الداخلي.</li>
+          <li>فتح باب الترشيح للمكاتب التنفيذية.</li>
+          <li>التوقيع على مذكرات التفاهم وبدء مشاريع توأمة تجريبية.</li>
+        </ol>
+        <div style="margin-top:8px" class="small muted">كل خطوة تُنفّذ بشفافية ومؤشرات أداء محددة.</div>
+      </section>
+    </aside>
+
+  </main>
+
+  <footer>
+    &copy; 2025 الهيئة السورية الألمانية — نسخة تفاعلية. جميع الحقوق محفوظة.
+  </footer>
+</div>
+
+<script>
+  /* Sidebar open/close + overlay + accessibility */
+  const menuBtn = document.getElementById('menuBtn');
+  const sidebar = document.getElementById('sidebar');
+  const closeBtn = document.getElementById('closeBtn');
+  const overlay = document.getElementById('overlay');
+  function openSidebar(){
+    sidebar.classList.add('open');
+    overlay.classList.add('show');
+    sidebar.setAttribute('aria-hidden','false');
+    overlay.setAttribute('aria-hidden','false');
+    // focus trap basic
+    closeBtn.focus();
+  }
+  function closeSidebar(){
+    sidebar.classList.remove('open');
+    overlay.classList.remove('show');
+    sidebar.setAttribute('aria-hidden','true');
+    overlay.setAttribute('aria-hidden','true');
+    menuBtn.focus();
+  }
+  menuBtn.addEventListener('click', openSidebar);
+  closeBtn.addEventListener('click', closeSidebar);
+  overlay.addEventListener('click', closeSidebar);
+  document.addEventListener('keydown', (e)=> {
+    if(e.key === 'Escape') closeSidebar();
+  });
+
+  /* Accordions */
+  document.querySelectorAll('.acc-head').forEach(head=>{
+    head.addEventListener('click', ()=>{
+      const targetId = head.getAttribute('data-target');
+      const body = document.getElementById(targetId);
+      const currentlyOpen = document.querySelector('.acc-head.active');
+      // close others
+      if(currentlyOpen && currentlyOpen !== head){
+        currentlyOpen.classList.remove('active');
+        document.getElementById(currentlyOpen.getAttribute('data-target')).style.display = 'none';
+      }
+      const isOpen = head.classList.toggle('active');
+      body.style.display = isOpen ? 'block' : 'none';
+    });
+  });
+
+  /* Simple client-side "demo" form storage (localStorage) */
+  const form = document.getElementById('signForm');
+  const formMsg = document.getElementById('formMsg');
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const data = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      specialty: form.specialty.value.trim(),
+      location: form.location.value.trim(),
+      notes: form.notes.value.trim(),
+      createdAt: new Date().toISOString()
+    };
+    // store demo locally as array
+    const key = 'sy-german-body-registrations';
+    const arr = JSON.parse(localStorage.getItem(key) || '[]');
+    arr.push(data);
+    localStorage.setItem(key, JSON.stringify(arr));
+    formMsg.textContent = 'تم حفظ التسجيل محلياً (نسخة تجريبية). يمكنك تكرار التجربة.';
+    form.reset();
+    setTimeout(()=> formMsg.textContent = '', 6000);
+  });
+
+  /* Smooth anchor scrolling & close sidebar on nav click (mobile) */
+  document.querySelectorAll('.nav-list a').forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      const href = a.getAttribute('href');
+      if(href && href.startsWith('#')){
+        e.preventDefault();
+        const el = document.querySelector(href);
+        if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
+        closeSidebar();
+      }
+    });
+  });
+
+  /* small enhancement: highlight section in sidebar while scrolling (basic) */
+  const sections = Array.from(document.querySelectorAll('main section[id]'));
+  function onScrollSpy(){
+    const top = window.scrollY + 120;
+    let current = sections.find(s => s.offsetTop <= top && (s.offsetTop + s.offsetHeight) > top);
+    document.querySelectorAll('.nav-list a').forEach(a=> a.style.opacity = '0.9');
+    if(current){
+      const link = document.querySelector('.nav-list a[href="#' + current.id + '"]');
+      if(link){ link.style.opacity = '1'; link.style.fontWeight = '900' }
+    }
+  }
+  window.addEventListener('scroll', onScrollSpy);
+  onScrollSpy(); // init
+</script>
+
+</body>
+</html>
